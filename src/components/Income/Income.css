@@ -1,0 +1,125 @@
+#income-table {
+    border: 2px solid silver;
+    border-radius: 15px;
+    width: 93vw;
+    margin: 10px auto;
+}
+
+#table-titling {
+    display: flex;
+    justify-content: space-between;
+}
+
+#label {
+    margin-left: 3vw;
+}
+
+#amount {
+    margin-right: 17vw;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 0;
+}
+
+#income-display {
+    display: flex;
+    align-items: center;
+    /* border-top: 1px solid black; */
+    border-bottom: 1px solid silver;
+    /* margin-bottom: 10px; */
+    padding: 0px 20px;
+
+}
+
+#display-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70vw;
+}
+
+#buttons {
+    display: flex;
+    margin-left: 10vw;
+    
+}
+
+button {
+    height: fit-content;
+    padding: 0;
+}
+
+#edit-img {
+    width: 30px;
+}
+
+#trash-img {
+    width: 30px;
+}
+
+#edit-button:hover {
+    background-color: silver;
+    border: none;
+    padding: 2px 2px;
+    border-radius: 5px;
+
+}
+
+#trash-button:hover {
+    background-color: silver;
+    border: none;
+    padding: 2px 2px;
+    border-radius: 5px;
+}
+
+#total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10vw 0 2.5vw;
+}
+
+form {
+    background-color: rgb(222, 221, 221);
+    padding: 1px 5px;
+}
+
+#name-display {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#money {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    padding: 4px;
+}
+
+form textarea {
+    position: relative;
+    right: 17vw;
+}
+
+form button {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+    padding: 2px 5px;
+    margin: 0;
+    font-size: 15px;
+}
+
+form button:hover {
+    outline: 2px solid white;
+    color: white;
+    background-color: silver;
+}
