@@ -15,6 +15,7 @@ const App = () => {
   const navigate = useNavigate()
   const [incomes, setIncomes] = useState([])
   
+  
   const { user } = useContext(UserContext)
 
   useEffect(() => {
