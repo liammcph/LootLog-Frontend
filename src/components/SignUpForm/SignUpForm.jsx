@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { signup } from "../../services/authService";
 import * as authService from "../../services/authService";
 // authService.signUp(formData)
-import { UserContext } from "../../context/UserContext";
+// import { UserContext } from "../../context/UserContext";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ const SignUpForm = () => {
   });
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
-  const { setUser } = useContext(UserContext);
+  // const { setUser } = useContext(UserContext);
   const { username, password, passwordConf } = formData;
 
   const handleChange = (e) => {
