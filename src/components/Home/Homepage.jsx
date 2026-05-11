@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Homepage = () => {
   return (
@@ -6,4 +6,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage
+export default Homepage;
