@@ -83,7 +83,10 @@ const App = () => {
   return (
     <>
       <header>
+        <div id="title">
+        {/* <img src="../src/assets/Logo.png" height='50px'alt="" /> */}
         <h3>LootLog</h3>
+        </div>
         <Navbar user={user}/>
       </header>
       <div>
