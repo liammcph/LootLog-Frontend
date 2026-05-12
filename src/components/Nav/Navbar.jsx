@@ -1,11 +1,16 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+import { UserContext } from "./context/UserContext";
+
 
 import './NavBar.css';
 
 const Navbar = () => {
   return (
     <nav>
+
       <Link to="/">Home</Link>
       <Link to="/income">Income</Link>
       <Link to="/expense">Expense</Link>
