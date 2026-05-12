@@ -13,7 +13,7 @@ const index = async (data) => {
 
 const show = async (goalId) => {
     try {
-        const res = await fetch(`${BASE_URL}/${expenseId}`, {
+        const res = await fetch(`${BASE_URL}/${goalId}`, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         return res.json();
@@ -30,7 +30,7 @@ const create = async (goalFormData) => {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(expenseFormData)
+            body: JSON.stringify(goalFormData)
         });
         return res.json();
     } catch (error) {

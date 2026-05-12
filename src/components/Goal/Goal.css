@@ -1,4 +1,4 @@
-#income-table {
+#goal-table {
     border: 2px solid silver;
     border-radius: 15px;
     width: 93vw;
@@ -20,7 +20,7 @@ hr {
     margin: 0;
 }
 
-#income-display {
+#goal-display {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +75,7 @@ form {
     padding: 1px 5px;
 }
 
-.income-info {
+.goal-info {
     text-decoration: none;
     font-size: 14px;
 }
