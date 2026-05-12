@@ -22,10 +22,8 @@ const Homepage = () => {
     if (image) {
       setImage()
     }
-    console.log(`Button Pressed ${image}`)
   }
 
-  console.log(`Button ${image}`)
   return (
     <>
     <h1>HomePage</h1>

@@ -86,6 +86,10 @@ const App = () => {
         <div id="title">
         {/* <img src="../src/assets/Logo.png" height='50px'alt="" /> */}
         <h3>LootLog</h3>
+        {user ? 
+          <p>Welcome Back, <strong>{user.username}</strong></p> :
+          <p>Welcome Guest</p>
+        }
         </div>
         <Navbar user={user}/>
       </header>

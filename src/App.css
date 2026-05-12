@@ -1,6 +1,8 @@
 header #title {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     background-image: url('../src/assets/Logo.png');
     background-position: left;
     background-size: 100px 60px;
@@ -11,15 +13,9 @@ header h3 {
     padding: 0px 16px;
     margin-left: 100px;
     font-size: 25px;
-    /* background-color: silver;
-    border: 1px solid black; */
     text-decoration-line: underline overline;
     text-decoration-style:solid;
     text-decoration-color: gray;
     text-underline-offset: 6px;
-    text-: 5px;
 }
 
-header img {
-   
-}
