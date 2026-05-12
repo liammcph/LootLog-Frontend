@@ -5,19 +5,25 @@ import { UserContext } from "./context/UserContext";
 
 import * as authService from "./services/authService";
 import * as incomeService from './services/incomeService';
+import * as expenseService from './services/expenseService';
+
 
 import Navbar from './components/Nav/Navbar';
 import Homepage from './components/Home/Homepage';
 import Income from './components/Income/Income';
+import Expense from './components/Expense/Expense';
+import Goal from './components/Goal/Goal';
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
 
 const App = () => {
   const { incomeId } = useParams();
+  const { expenseId } = useParams();
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [incomes, setIncomes] = useState([]);
+  const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -51,6 +57,30 @@ const App = () => {
     setIncomes(incomes.map((income) => (incomeId === income._id ? updatedIncome : income)));
   }
 
+  useEffect(() => {
+    const fetchExpenses = async () => {
+      const data = await expenseService.index();
+      const expenseData = data.filter((item) => item.author._id === user._id);
+      setExpenses(expenseData);
+    }
+    if (user) fetchExpenses();
+  }, [user])
+
+  const handleAddExpense = async (expenseFormData) => {
+    const newExpense = await expenseService.create(expenseFormData);
+    setExpenses([newExpense, ...expenses]);
+  }
+
+  const handleDeleteExpense = async (expenseId) => {
+    const deletedExpense = await expenseService.deleteExpense(expenseId);
+    setExpenses(expenses.filter((expense) => expense._id !== deletedExpense._id));
+  }
+
+  const handleUpdateExpense = async (expenseId, expenseFormData) => {
+    const updatedExpense = await expenseService.updateExpense(expenseId, expenseFormData);
+    setExpenses(expenses.map((expense) => (expenseId === expense._id ? updatedExpense : expense)));
+  }
+
   return (
     <>
       <header>
@@ -71,6 +101,26 @@ const App = () => {
                 handleAddIncome={handleAddIncome}
                 handleDeleteIncome={handleDeleteIncome}
                 handleUpdateIncome={handleUpdateIncome}
+              />}
+            />
+          )}
+          {user && (
+            <Route
+              path="/expense"
+              element={<Expense
+                expenses={expenses}
+                handleAddExpense={handleAddExpense}
+                handleDeleteExpense={handleDeleteExpense}
+                handleUpdateExpense={handleUpdateExpense}
+              />}
+            />
+          )}
+          {user && (
+            <Route
+              path="/goal"
+              element={<Goal
+                incomes={incomes}
+                expenses={expenses}
               />}
             />
           )}
