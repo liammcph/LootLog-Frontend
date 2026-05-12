@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 import { useContext, useState, useEffect } from "react";
-import { Routes, Route, useParams, useNavigate } from "react-router";
+import { Routes, Route } from "react-router";
 import { UserContext } from "./context/UserContext";
 
-import * as authService from "./services/authService";
+// import * as authService from "./services/authService";
 import * as incomeService from './services/incomeService';
 import * as expenseService from './services/expenseService';
 
@@ -16,13 +16,12 @@ import Goal from './components/Goal/Goal';
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
 
-const App = () => {
-  const { incomeId } = useParams();
-  const { expenseId } = useParams();
-  const { user, setUser } = useContext(UserContext);
-  const navigate = useNavigate();
+// import Home from "./components/Home/Home";
 
-  const [incomes, setIncomes] = useState([]);
+const App = () => {
+
+  const { user, setUser } = useContext(UserContext);
+    const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {

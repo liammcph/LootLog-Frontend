@@ -27,7 +27,7 @@ export const signup = async (formData) => {
     }
   } catch (error) {
     console.log(error);
-    throw new Error(error);
+    throw error;
   }
 };
 
@@ -57,6 +57,6 @@ export const signin = async (formData) => {
     }
   } catch (error) {
     console.log(error);
-    throw new Error(error);
+    throw error;
   }
 };
