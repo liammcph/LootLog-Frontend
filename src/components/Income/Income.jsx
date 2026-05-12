@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-
 import * as incomeService from '../../services/incomeService';
 
 import "./Income.css";

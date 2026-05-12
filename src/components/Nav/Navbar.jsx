@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import '../Nav/Navbar.css';
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, handleSignOut }) => {
   return (
     <nav>
       {user ? (
@@ -16,11 +16,9 @@ const Navbar = ({ user }) => {
           <p>┃┃</p>
           <Link to="/goal" className="link">Goal</Link>
           <p>┃┃</p>
-          <Link to="/sign-up" className="link">Sign-Up</Link>
-          <p>┃┃</p>
-          <Link to="/sign-in" className="link">Sign-In</Link>
+          <Link to="/" onClick={handleSignOut} className="link"></Link>
         </>
-        ) : (
+      ) : (
         <>
           <Link to="/" className="link">Home</Link>
           <p>┃┃</p>
@@ -30,7 +28,7 @@ const Navbar = ({ user }) => {
         </>
       )}
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar;

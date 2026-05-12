@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
 import * as expenseService from '../../services/expenseService';
 
 import "./Expense.css";
