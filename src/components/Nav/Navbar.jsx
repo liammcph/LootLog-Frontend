@@ -1,22 +1,34 @@
 import React from 'react';
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
-import { UserContext } from "./context/UserContext";
+import '../Nav/Navbar.css';
 
-
-import './NavBar.css';
-
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
     <nav>
-
-      <Link to="/">Home</Link>
-      <Link to="/income">Income</Link>
-      <Link to="/expense">Expense</Link>
-      <Link to="/goal">Goal</Link>
-      <Link to="/sign-up">Sign-Up</Link>
-      <Link to="/sign-in">Sign-In</Link>
+      {user ? (
+        <>
+          <Link to="/" className="link">Home</Link>
+          <p>┃┃</p>
+          <Link to="/income" className="link">Income</Link>
+          <p>┃┃</p>
+          <Link to="/expense" className="link">Expense</Link>
+          <p>┃┃</p>
+          <Link to="/goal" className="link">Goal</Link>
+          <p>┃┃</p>
+          <Link to="/sign-up" className="link">Sign-Up</Link>
+          <p>┃┃</p>
+          <Link to="/sign-in" className="link">Sign-In</Link>
+        </>
+        ) : (
+        <>
+          <Link to="/" className="link">Home</Link>
+          <p>┃┃</p>
+          <Link to="/sign-up" className="link">Sign-Up</Link>
+          <p>┃┃</p>
+          <Link to="/sign-in" className="link">Sign-In</Link>
+        </>
+      )}
     </nav>
   )
 }
