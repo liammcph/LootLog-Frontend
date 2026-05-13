@@ -1,9 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { signup } from "../../services/authService";
-import * as authService from "../../services/authService";
-// authService.signUp(formData)
-// import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
+import "../AuthForm/AuthForm.css";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +12,7 @@ const SignUpForm = () => {
   });
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
-  // const { setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const { username, password, passwordConf } = formData;
 
   const handleChange = (e) => {
@@ -31,7 +30,7 @@ const SignUpForm = () => {
       navigate("/");
     } catch (error) {
       console.log(error);
-      throw new Error(error);
+      setMessage(error.message);
     }
   };
 
@@ -40,51 +39,66 @@ const SignUpForm = () => {
   };
 
   return (
-    <main>
-      <div>
-      <h1>Sign Up</h1>
-      <p>{message}</p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="name"
-            value={username}
-            name="username"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="confirm">Confirm Password:</label>
-          <br/>
-          <input
-            type="password"
-            id="confirm"
-            value={passwordConf}
-            name="passwordConf"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <button disabled={isFormInvalid()}>Sign Up</button>
-          <button onClick={() => navigate("/")}>Cancel</button>
-        </div>
-      </form>
+    <main className="auth-page">
+      <section className="auth-card">
+        <h1 className="auth-title">Sign Up</h1>
+        <p className="auth-message" aria-live="polite">
+          {message}
+        </p>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="auth-field">
+            <label htmlFor="username">Username:</label>
+            <input
+              className="auth-input"
+              type="text"
+              id="name"
+              value={username}
+              name="username"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="auth-field">
+            <label htmlFor="password">Password:</label>
+            <input
+              className="auth-input"
+              type="password"
+              id="password"
+              value={password}
+              name="password"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="auth-field">
+            <label htmlFor="confirm">Confirm Password:</label>
+            <input
+              className="auth-input"
+              type="password"
+              id="confirm"
+              value={passwordConf}
+              name="passwordConf"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="auth-actions">
+            <button
+              className="auth-button auth-button-primary"
+              disabled={isFormInvalid()}
+            >
+              Sign Up
+            </button>
+            <button
+              className="auth-button auth-button-secondary"
+              type="button"
+              onClick={() => navigate("/")}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
     </main>
   );
 };
