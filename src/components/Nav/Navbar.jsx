@@ -1,48 +1,32 @@
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
-import { Link } from "react-router";
+import React from 'react';
+import { Link } from 'react-router';
 
-import "./NavBar.css";
+import '../Nav/Navbar.css';
 
-const Navbar = () => {
-  const { user, setUser } = useContext(UserContext);
-
-  const handleSignOut = async () => {
-    localStorage.removeItem("token");
-    setUser(null);
-  };
+const Navbar = ({ user, handleSignOut }) => {
   return (
     <nav>
-      <ul>
-        {user ? (
-          <>
-            <li>
-              <Link to="/">Welcome Back {user.username}</Link>
-              <Link to="/income">Income</Link>
-              <Link to="/expense">Expense</Link>
-              <Link to="/goal">Goal</Link>
-              <Link to="/" onClick={handleSignOut}>
-                Sign Out
-              </Link>
-            </li>
-            {user && (
-              <li>
-                <div title={user.username}>
-                  {user.username.charAt(0).toUpperCase()}
-                </div>
-              </li>
-            )}
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to="/">Home</Link>
-              <Link to="/sign-up">Sign Up</Link>
-              <Link to="/sign-in">Sign In</Link>
-            </li>
-          </>
-        )}
-      </ul>
+      {user ? (
+        <>
+          <Link to="/" className="link">Home</Link>
+          <p>┃┃</p>
+          <Link to="/income" className="link">Income</Link>
+          <p>┃┃</p>
+          <Link to="/expense" className="link">Expense</Link>
+          <p>┃┃</p>
+          <Link to="/goal" className="link">Goal</Link>
+          <p>┃┃</p>
+          <Link to="/" onClick={handleSignOut} className="link">Logout</Link>
+        </>
+      ) : (
+        <>
+          <Link to="/" className="link">Home</Link>
+          <p>┃┃</p>
+          <Link to="/sign-up" className="link">Sign-Up</Link>
+          <p>┃┃</p>
+          <Link to="/sign-in" className="link">Sign-In</Link>
+        </>
+      )}
     </nav>
   );
 };

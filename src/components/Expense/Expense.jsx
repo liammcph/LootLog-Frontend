@@ -1,7 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router';
-
 import * as expenseService from '../../services/expenseService';
 
 import "./Expense.css";
