@@ -1,8 +1,8 @@
 # LootLog
 
-![LootLog Logo](https://ibb.co/h1LzV91X)
-![Homepage](https://ibb.co/LDykpg2m)
-![Goals](https://ibb.co/ZRZQ3SvP)
+![LootLog Logo](https://i.ibb.co/yBdjqPBh/Logo.png)
+![Homepage](https://i.ibb.co/NgqVYNH5/image-6.png)
+![Goals](https://i.ibb.co/MyXzbfK4/image-7.png)
 
 # Description
 
@@ -10,13 +10,13 @@
 
 # Getting Started
 
-![Trello](https://trello.com/b/duU2LGrg/lootlog)
+[Trello](https://trello.com/b/duU2LGrg/lootlog)
 
-![GitHub_Backend](https://github.com/liammcph/LootLog-Backend)
+[GitHub_Backend](https://github.com/liammcph/LootLog-Backend)
 
-![GitHub_Frontend](https://github.com/liammcph/LootLog-Frontend)
+[GitHub_Frontend](https://github.com/liammcph/LootLog-Frontend)
 
-![Deployed project link]()
+[Deployed project link]()
 
 # Technologies Used
 
