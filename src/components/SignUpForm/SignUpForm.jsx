@@ -41,8 +41,10 @@ const SignUpForm = () => {
 
   return (
     <main>
+      <div>
       <h1>Sign Up</h1>
       <p>{message}</p>
+      </div>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
@@ -68,6 +70,7 @@ const SignUpForm = () => {
         </div>
         <div>
           <label htmlFor="confirm">Confirm Password:</label>
+          <br/>
           <input
             type="password"
             id="confirm"

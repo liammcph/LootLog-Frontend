@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext, useState, useEffect } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route} from "react-router";
 import { UserContext } from "./context/UserContext";
 
 import * as authService from "./services/authService";
@@ -116,16 +116,9 @@ const App = () => {
         <div id="title">
           <h3>LootLog</h3>
           {user ?
-            <p>Welcome Back, <strong>{user.username}</strong></p> :
+            <p title={user.username}>Welcome Back, <strong id="user-name" >{user.username.charAt(0).toUpperCase()}</strong></p> :
             <p>Welcome Guest</p>
           }
-          {user && (
-            <li>
-              <div title={user.username}>
-                {user.username.charAt(0).toUpperCase()}
-              </div>
-            </li>
-          )}
         </div>
         <Navbar user={user} handleSignOut={handleSignOut} />
       </header>

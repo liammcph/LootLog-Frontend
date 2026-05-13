@@ -26,7 +26,6 @@ const Homepage = () => {
 
   return (
     <>
-    <h1>HomePage</h1>
     <div id="home-display">
     <button onClick={() => handleImg('one')}><img className={imgOne} id={image === 'one' ? "one" : ""} src="https://www.financestrategists.com/uploads/featured/Budgeting-Overview.png" alt="Finance Strategies 'creativecommons.org' "  /></button>
     <button onClick={() => handleImg('two')}><img className={imgTwo} id={image === 'two' ? "two" : ""} src="https://www.financestrategists.com/uploads/featured/Personal_Finance_Best_Practices.png" alt="Finance Strategies 'creativecommons.org' " /></button>

@@ -16,7 +16,7 @@ const Navbar = ({ user, handleSignOut }) => {
           <p>┃┃</p>
           <Link to="/goal" className="link">Goal</Link>
           <p>┃┃</p>
-          <Link to="/" onClick={handleSignOut} className="link"></Link>
+          <Link to="/" onClick={handleSignOut} className="link">Logout</Link>
         </>
       ) : (
         <>
