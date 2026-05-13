@@ -1,12 +1,12 @@
-// import React from 'react';
+import React from 'react';
 import { useContext, useState, useEffect } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route} from "react-router";
 import { UserContext } from "./context/UserContext";
 
+import * as authService from "./services/authService";
 import * as incomeService from './services/incomeService';
 import * as expenseService from './services/expenseService';
 import * as goalService from './services/goalService';
-
 
 import Navbar from './components/Nav/Navbar';
 import Homepage from './components/Home/Homepage';
@@ -16,10 +16,12 @@ import Goal from './components/Goal/Goal';
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
 
-const App = () => {
+import './App.css';
 
+const App = () => {
   const { user, setUser } = useContext(UserContext);
-    const [incomes, setIncomes] = useState([]);
+
+  const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [goals, setGoals] = useState([]);
 
@@ -79,7 +81,7 @@ const App = () => {
     setExpenses(expenses.map((expense) => (expenseId === expense._id ? updatedExpense : expense)));
   }
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchGoals = async () => {
       const data = await goalService.index();
       const goalData = data.filter((item) => item.author._id === user._id);
@@ -103,12 +105,22 @@ const App = () => {
     setGoals(goals.map((goal) => (goalId === goal._id ? updatedGoal : goal)));
   }
 
+  const handleSignOut = async () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
 
   return (
     <>
       <header>
-        LootLog
-        <Navbar />
+        <div id="title">
+          <h3>LootLog</h3>
+          {user ?
+            <p title={user.username}>Welcome Back, <strong id="user-name" >{user.username.charAt(0).toUpperCase()}</strong></p> :
+            <p>Welcome Guest</p>
+          }
+        </div>
+        <Navbar user={user} handleSignOut={handleSignOut} />
       </header>
       <div>
         <Routes>
