@@ -1,9 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { signin } from "../../services/authService";
-import * as authService from "../../services/authService";
-// authService.signUp(formData)
 import { UserContext } from "../../context/UserContext";
+import "../AuthForm/AuthForm.css";
 
 const SignInForm = () => {
   const [formData, setFormData] = useState({
@@ -40,38 +39,52 @@ const SignInForm = () => {
   };
 
   return (
-    <main>
-      <h1>Sign In</h1>
-      <p>{message}</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="name"
-            value={username}
-            name="username"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-            required
-          />
-        </div>
+    <main className="auth-page">
+      <section className="auth-card">
+        <h1 className="auth-title">Sign In</h1>
+        <p className="auth-message" aria-live="polite">
+          {message}
+        </p>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="auth-field">
+            <label htmlFor="username">Username:</label>
+            <input
+              className="auth-input"
+              type="text"
+              id="name"
+              value={username}
+              name="username"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="auth-field">
+            <label htmlFor="password">Password:</label>
+            <input
+              className="auth-input"
+              type="password"
+              id="password"
+              value={password}
+              name="password"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div>
-          <button disabled={isFormInvalid()}>Sign In</button>
-          <button onClick={() => navigate("/")}>Cancel</button>
-        </div>
-      </form>
+          <div className="auth-actions">
+            <button className="auth-button auth-button-primary" disabled={isFormInvalid()}>
+              Sign In
+            </button>
+            <button
+              className="auth-button auth-button-secondary"
+              type="button"
+              onClick={() => navigate("/")}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
     </main>
   );
 };
