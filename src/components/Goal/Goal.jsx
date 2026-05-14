@@ -72,10 +72,10 @@ const monthlyProfit = monthlyGross - monthlyExpense;
     </div>
     <div id="buttons">
       <button className="display-button" onClick={() => handleUpdate(goals[0]._id)}>
-        <img className="btn-img" src="../src/assets/edit-pencil.png" alt="edit" />
+        <img className="btn-img" src="./edit-pencil.png" alt="edit" />
       </button>
       <button className="display-button" onClick={() => handleDeleteGoal(goals[0]._id)}>
-        <img className="btn-img" src="../src/assets/trashcan.png" alt="delete" />
+        <img className="btn-img" src="./trashcan.png" alt="delete" />
       </button>
     </div>
     

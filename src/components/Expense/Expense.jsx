@@ -80,8 +80,8 @@ const Expense = ({ expenses, handleDeleteExpense, handleUpdateExpense, user, ...
               </div>
             </button>
             <div id="buttons">
-              <button className="display-button" onClick={() => handleUpdate(expense._id)}><img className="btn-img" src="../src/assets/edit-pencil.png" alt="pen" /></button>
-              <button className="display-button" onClick={() => handleDeleteExpense(expense._id)}><img className="btn-img" src="../src/assets/trashcan.png" alt="trashcan" /></button>
+              <button className="display-button" onClick={() => handleUpdate(expense._id)}><img className="btn-img" src="./edit-pencil.png" alt="pen" /></button>
+              <button className="display-button" onClick={() => handleDeleteExpense(expense._id)}><img className="btn-img" src="./trashcan.png" alt="trashcan" /></button>
             </div>
             {detailsShow(expense)}
           </div>
