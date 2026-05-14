@@ -8,7 +8,7 @@ import "./Goal.css";
 const initialData = {
   name: '',
   goalAmount: '',
-  savedAmount: 0,
+  savedAmount: '',
 };
 
 const Goal = ({ goals, incomes, expenses, handleDeleteGoal, handleUpdateGoal, user, ...props }) => {
@@ -55,7 +55,7 @@ const monthlyProfit = monthlyGross - monthlyExpense;
       <h1 id="title">Goal</h1>
       <div id="goal-table">
         <div id="table-titling">
-          <h3 id="label">Label</h3>
+          <h3 id="label">Goal details</h3>
         </div>
         <h2>Monthly Profit: ${monthlyProfit.toLocaleString()}</h2>
         <hr />
@@ -63,7 +63,7 @@ const monthlyProfit = monthlyGross - monthlyExpense;
   <div id="goal-display">
     <div id="display-info">
       <p className="goal-info">{goals[0].name}</p>
-      <p className="goal-info">${goals[0].savedAmount.toLocaleString()} / ${goals[0].goalAmount.toLocaleString()}</p>
+      <p className="goal-info">${(goals[0].savedAmount ?? 0).toLocaleString()} / ${(goals[0].goalAmount ?? 0).toLocaleString()}</p>
       <p className="goal-info">
         {monthlyProfit > 0
           ? `${((goals[0].goalAmount - goals[0].savedAmount) / monthlyProfit).toFixed(1)} months left`
@@ -82,11 +82,11 @@ const monthlyProfit = monthlyGross - monthlyExpense;
   </div>
 ) : null}
         <form onSubmit={handleSubmit}>
-          <input onChange={handleChange} type="text" name="name" id="name" value={formData.name} placeholder='Label' required />
+          <input onChange={handleChange} type="text" name="name" id="name" value={formData.name} placeholder='Name of Goal' required />
 
-          <input onChange={handleChange} type="text" name="goalAmount" id="amount" value={formData.goalAmount} placeholder='$0' required />
+          <input onChange={handleChange} type="text" name="goalAmount" id="amount" value={formData.goalAmount} placeholder='Goal Amount' required />
 
-          <input onChange={handleChange} type="text" name="savedAmount" id="savedAmount" value={formData.savedAmount} placeholder='Saved So Far' />
+          <input onChange={handleChange} type="text" name="savedAmount" id="savedAmount" value={formData.savedAmount} placeholder='Amount Saved So Far' required />
 
           <button type="submit">✚</button>
         </form>
