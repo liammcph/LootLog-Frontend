@@ -16,7 +16,7 @@
 
 [GitHub_Frontend](https://github.com/liammcph/LootLog-Frontend)
 
-[Deployed project link]()
+[Deployed project link](https://lootlog-ga-ae73a970bf23.herokuapp.com/)
 
 # Technologies Used
 
