@@ -4,7 +4,7 @@ header #title {
     justify-content: space-between;
     width: 98%;
     height: 70px;
-    background-image: url('../src/assets/Logo.png');
+    background-image: url('../public/Logo.png');
     background-position: left;
     background-size: 100px 60px;
     background-repeat: no-repeat;
